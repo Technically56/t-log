@@ -1,0 +1,16 @@
+name: "Web Rules"
+rules:
+  - name: "Nginx 404"
+    regex: "\"(GET|POST|HEAD) .* HTTP/.*\" 404"
+    level: "WARNING"
+    description: "Detects 404 errors"
+
+  - name: "Nginx 500"
+    regex: "\"(GET|POST|HEAD) .* HTTP/.*\" 500"
+    level: "ERROR"
+    description: "Detects 500 Server errors"
+
+  - name: "SQL Injection Attempt"
+    regex: "(?i)(union|select|insert|update|delete|drop|alter).*(from|into|table|database)"
+    level: "CRITICAL"
+    description: "Detects potential SQL injection attempts in URL"

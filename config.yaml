@@ -1,0 +1,20 @@
+monitors:
+  - name: "SSH Auth Monitor"
+    path: "/var/log/auth.log"
+    rules_path: "./rules/ssh_rules.yaml"
+    source_color: "#ff00ff"
+
+  - name: "Nginx Access Monitor"
+    path: "/var/log/nginx/access.log"
+    rules_path: "./rules/web_rules.yaml"
+    source_color: "#00ffff"
+
+  - name: "Syslog Monitor"
+    path: "/var/log/syslog"
+    rules_path: "./rules/syslog_rules.yaml"
+    source_color: "orange"
+
+  - name: "UFW Firewall Monitor"
+    path: "/var/log/ufw.log"
+    rules_path: "./rules/ufw_rules.yaml"
+    source_color: "red"

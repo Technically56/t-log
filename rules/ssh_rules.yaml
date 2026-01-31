@@ -1,0 +1,16 @@
+name: "SSH Rules"
+rules:
+  - name: "SSH Failed Login"
+    regex: "Failed password for (?P<user>\\S+) from (?P<ip>\\S+)"
+    level: "CRITICAL"
+    description: "Detects failed SSH login attempts"
+    
+  - name: "SSH Accepted Login"
+    regex: "Accepted password for (?P<user>\\S+) from (?P<ip>\\S+)"
+    level: "INFO"
+    description: "Detects successful SSH login attempts"
+
+  - name: "Invalid User"
+    regex: "Invalid user (?P<user>\\S+) from (?P<ip>\\S+)"
+    level: "ERROR"
+    description: "Detects login attempts with invalid users"

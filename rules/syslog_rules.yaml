@@ -1,0 +1,16 @@
+name: "Syslog Rules"
+rules:
+  - name: "Sudo Command"
+    regex: "sudo: \\s*(?P<user>\\S+) : TTY=.* ; COMMAND=(?P<command>.*)"
+    level: "WARNING"
+    description: "Track sudo usage"
+
+  - name: "Cron Job"
+    regex: "CRON\\[.*\\]: \\((?P<user>\\S+)\\) CMD \\((?P<command>.*)\\)"
+    level: "INFO"
+    description: "Track cron jobs"
+
+  - name: "Segfault"
+    regex: "segfault at .* ip .* sp .* error .* in (?P<program>\\S+)"
+    level: "CRITICAL"
+    description: "Detect segmentation faults"

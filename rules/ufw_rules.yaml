@@ -1,0 +1,11 @@
+name: "UFW Rules"
+rules:
+  - name: "UFW Block"
+    regex: "\\[UFW BLOCK\\] IN=(?P<in_interface>\\S+) OUT=(?P<out_interface>\\S*) .* SRC=(?P<src_ip>\\S+) DST=(?P<dst_ip>\\S+)"
+    level: "WARNING"
+    description: "Detects UFW blocked connections"
+
+  - name: "UFW Audit"
+    regex: "\\[UFW AUDIT\\]"
+    level: "INFO"
+    description: "UFW audit logs"

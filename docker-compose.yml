@@ -1,0 +1,12 @@
+services:
+  t-log:
+    build: .
+    container_name: t-log
+    tty: true
+    stdin_open: true
+    volumes:
+      - /var/log:/var/log:ro
+      - ./output:/app/output
+      - ./config.yaml:/app/config.yaml:ro
+      - ./rules:/app/rules:ro
+    working_dir: /app
