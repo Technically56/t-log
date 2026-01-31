@@ -1,10 +1,13 @@
 package parser
 
-import "github.com/Technically56/bubble-log/internal/engine/rules"
+import (
+	"regexp"
+
+	"github.com/Technically56/bubble-log/internal/engine/rules"
+)
 
 type Parser struct {
-	filepath string
-	ruleset  *rules.Ruleset
+	ruleset *rules.Ruleset
 }
 
 type LogEntry struct {
@@ -13,4 +16,10 @@ type LogEntry struct {
 	Message      string
 	Level        string
 	MatchedRules []rules.Rule
+}
+
+func (p *Parser) ParseLine(line string) *LogEntry {
+	for _, rule := range p.ruleset.Rules {
+		regexp.MustCompile(rule.Regex)
+	}
 }

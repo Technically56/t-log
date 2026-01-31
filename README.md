@@ -1,2 +1,2 @@
-# bubble-log
-A log analyzer tool utilizing Bubble Tea for TUI
+# t-log
+A log analyzer tool utilizing t-view for TUI
